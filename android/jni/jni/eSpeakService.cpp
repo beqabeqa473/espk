@@ -25,6 +25,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <string.h>
 #include <jni.h>
 
 #include <speak_lib.h>

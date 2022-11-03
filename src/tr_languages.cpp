@@ -200,7 +200,8 @@ static const unsigned short chars_ignore_zwnj_hyphen[] = {
 	0x200d,  1, // zero width joiner
 	0, 0 };
 
-const char string_ordinal[] = {0xc2,0xba,0};  // masculine ordinal character, UTF-8
+const unsigned char utf8_ordinal[] = { 0xc2, 0xba, 0 }; // masculine ordinal character, UTF-8
+const unsigned char utf8_null[] = { 0 }; // null string, UTF-8
 
 
 static Translator* NewTranslator(void)
@@ -298,7 +299,7 @@ static const char transpose_map_latin[] = {
 	tr->langopts.replace_chars = NULL;
 	tr->langopts.ascii_language[0] = 0;    // Non-Latin alphabet languages, use this language to speak Latin words, default is English
 	tr->langopts.alt_alphabet_lang = L('e','n');
-	tr->langopts.roman_suffix = "";
+	tr->langopts.roman_suffix = utf8_null;
 
 	SetLengthMods(tr,201);
 //	tr->langopts.length_mods = length_mods_en;
@@ -782,7 +783,7 @@ Translator *SelectTranslator(const char *name)
 				tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 				tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_ORDINAL;
 				tr->langopts.numbers2 = NUM2_ORDINAL_NO_AND;
-				tr->langopts.roman_suffix = string_ordinal;
+				tr->langopts.roman_suffix = utf8_ordinal;
 			}
 			else
 			if(name2 == L_pap)
