@@ -23,14 +23,9 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
-
-#ifdef ANDROID
-#include "android_wchar.h"
-#else
 #include <wctype.h>
 #include <wchar.h>
-#endif
+#include <math.h>
 
 #include "speak_lib.h"
 #include "speech.h"
